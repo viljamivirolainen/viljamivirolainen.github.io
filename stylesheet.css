@@ -1,3 +1,10 @@
+table {
+	position: relative;
+	margin-top: 150px;
+    text-align: center;
+    color:white;
+    background-color: blue;
+}
 
 
 .navigation {
@@ -43,11 +50,6 @@ h1 {
     font-size: 1em;
 }
 
-.idea h2:hover {
-    font-size: 2em;
-    transition: 1s;
-    color: white;
-}
 
 .idea {
     width: 70%;
