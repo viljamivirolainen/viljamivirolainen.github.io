@@ -4,7 +4,15 @@ table {
     text-align: center;
     color:white;
     background-color: blue;
+    width: 50%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 20px;
+    border-color: blue;
+    border-width: 5px;
+    border-style: solid;
 }
+
 
 
 .navigation {
@@ -43,11 +51,6 @@ h1 {
     text-align: center;
     color:white;
     background-color: blue;
-}
-
-.idea h2 {
-    transition: 1s;
-    font-size: 1em;
 }
 
 
