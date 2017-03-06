@@ -1,0 +1,25 @@
+{
+    "articles": [
+
+        {
+            "otsikko": "Bioenergia on parasta",
+            "sisältö": "Moi kaikki",
+            "päivämäärä": "6.2."
+            },
+        {
+            "otsikko": "Antaa palaa!",
+            "sisältö": "Moi kaikki 2",
+            "päivämäärä": "5.2."
+            },
+
+
+        {
+            "otsikko": "Minun uutinen 3",
+            "sisältö": "Moi kaikki 3",
+            "päivämäärä": "4.2."
+            }
+
+
+        ]
+
+}
