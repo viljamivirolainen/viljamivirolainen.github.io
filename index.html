@@ -23,7 +23,7 @@
 	 	</header>
 	 	<section>
 	 		<article  id="kotimaista" class="idea">
-	 			<h2>Käytä kotimaista, luo työpaikkoja</h20>4
+	 			<h2>Käytä kotimaista, luo työpaikkoja</h2>
 	 			<p>Lorem ipsum dolor sit amet, apeirian senserit honestatis mea eu. Quo ad mutat electram. Vel choro invidunt ad. Est eruditi phaedrum definitionem ut. Vis in dicam conclusionemque, eam an blandit indoctum, numquam deseruisse ne quo.
 
 				Vim in timeam postulant repudiandae, vix ad dolor nemore. Elitr vivendo gloriatur te ius, tation omnium omittam ex ius. Te duo dictas inermis adipisci, te feugait mandamus erroribus duo. Dissentiet consectetuer vis no, te has illud lorem interesset. Vix ex nisl senserit.
@@ -31,7 +31,22 @@
 				Accusamus disputando id sit, nihil quaerendum in ius, mea aliquid deserunt inimicus ex. Cu pri gubergren definiebas, iudico decore id vis, esse verear et sea. Nam sanctus efficiantur ex, nominavi periculis mea at, vim epicuri conceptam ad. Sanctus menandri dissentiunt eu est.
 
 				Est ne quodsi latine. Et eam ullum soleat, tation quaeque ad mea, eloquentiam referrentur accommodare eam te. Vim no velit eligendi consequuntur, ex cum alterum deterruisset, per sensibus tincidunt te. Novum adversarium eum cu. Ius sumo civibus hendrerit ne. Eam dolore molestie vulputate no, no vis posse dicam.</p>
+	 			<!-- first try HTML5 playback: if serving as XML, expand `controls` to `controls="controls"` and autoplay likewise -->
+				<!-- warning: playback does not work on iOS3 if you include the poster attribute! fixed in iOS4.0 -->
+				<video width="640" height="360" controls>
+					<!-- MP4 must be first for iPad! -->
+					<source src="bioenergiavideo_final_c.mp4" type="video/mp4" /><!-- Safari / iOS video    -->
+					<source src="bioenergiavideo_final.ogg" type="video/ogg" /><!-- Firefox / Opera / Chrome10 -->
+					
+				</video>
+				<!-- you *must* offer a download link as they may be able to play the file locally. customise this bit all you want -->
+				<p>	<strong>Download Video:</strong>
+					MP4 muodossa:	<a href="bioenergiavideo_final_c.mp4">"MP4"</a>
+					Ogg muodossa:	<a href="bioenergiavideo_final.ogg">"Ogg"</a>
+					WebM muodossa:	<a href="bioenergiavideo_final.webm">"WebM"</a>
+				</p>
 	 		</article>
+
 	 		<article id="tulevaisuus" class="idea">
 	 			<h2>Tulevat sukupolvet kiittävät</h2>
 	 			<p>Lorem ipsum dolor sit amet, ea affert ubique graecis his, mandamus tractatos constituto ea pri. At qui falli dolor accusam. Cu quis hinc vel, assum interesset at eos, quo causae vituperata an. Te tota affert utamur pro, ei unum paulo interpretaris pro. Vivendo reprehendunt in pro, an dolorem vulputate sit, hinc instructior sea ut.
