@@ -1,30 +1,59 @@
-window.onload = function(event) {
-	$.getJSON("https://virolav2-e203f.firebaseio.com/.json", function( data ) {
-			for (var i = data.articles.length - 1; i >= 0; i--) {
-				if(i===0) {
-					$( "<li class =\"article showing"+ "\">").appendTo("#articles");
-				}
-				else {
-					$( "<li class =\"article"+ "\">").appendTo("#articles");	
-				}
-				
-				$( "<p>"+ data.articles[i].sisältö +"</p>" ).appendTo( "#articles" );
-				$( "<img src="+data.articles[i].kuva+">").appendTo("#articles");
-				$( "</li>").appendTo("#articles");
-			}
-			
-			console.log(data);
-	});
+var jsonData = null;
+if (localStorage.currentSlide) {
+    localStorage.currentSlide = Number(localStorage.currentSlide);
+} else {
+    localStorage.currentSlide = 0;
 }
 
-var articles = document.querySelectorAll('#articles .article');
-var currentArticle = 0;
-var articleInterval = setInterval(nextArticle,2000);
+window.onload = function() {
+	$.getJSON("https://virolav2-e203f.firebaseio.com/.json", function( data ) {
+			console.log(data);
+			jsonData = data;$('#slideDate').html(data.articles[localStorage.currentSlide].päivämäärä);
+            $('#slideHeader').html(data.articles[localStorage.currentSlide].otsikko);
+            $('#slideText').html(data.articles[localStorage.currentSlide].sisältö);
+    		var url = jsonData.articles[localStorage.currentSlide].kuva
+    		document.getElementById("slides").style.backgroundImage = "url("+url+")";
 
-function nextArticle() {
-    articles[currentArticle].className = 'article';
-    currentArticle = (currentArticle+1)%articles.length;
-    articles[currentArticle].className = 'article showing';
+    });
+}
+
+var play = window.setInterval(function(){
+    nextSlide();
+},2000);
+
+function nextSlide(){ 
+    localStorage.currentSlide = (localStorage.currentSlide + 1) % 3;
+    $('#slideDate').html(jsonData.articles[localStorage.currentSlide].päivämäärä);
+    $('#slideHeader').html(jsonData.articles[localStorage.currentSlide].otsikko);
+    $('#slideText').html(jsonData.articles[localStorage.currentSlide].sisältö);
+    var url = jsonData.articles[localStorage.currentSlide].kuva
+    document.getElementById("slides").style.backgroundImage = "url("+url+")";
+}
+
+function previousSlide(){
+    if(localStorage.currentSlide == 0){
+        localStorage.currentSlide = 2;
+    } else {
+      localStorage.currentSlide = localStorage.currentSlide - 1 ;
+    }
+    
+    $('#slideDate').html(jsonData.articles[localStorage.currentSlide].päivämäärä);
+    $('#slideHeader').html(jsonData.articles[localStorage.currentSlide].otsikko);
+    $('#slideText').html(jsonData.articles[localStorage.currentSlide].sisältö);  
+    var url = jsonData.articles[localStorage.currentSlide].kuva
+    document.getElementById("slides").style.backgroundImage = "url("+url+")";
+}
+
+function togglePlay(){
+  if(document.getElementById("playButton").innerHTML == "Pysäytä") {
+      clearInterval(play);
+      document.getElementById("playButton").innerHTML = "Käynnistä";
+  } else {
+      play = window.setInterval(function(){
+          nextSlide();
+      },2000); 
+      document.getElementById("playButton").innerHTML = "Pysäytä";
+  }
 }
 
 

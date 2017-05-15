@@ -6,7 +6,8 @@
     	<meta name="description" content="Suomi nousuun bioenergialla -kampanjasivut" />
 		<link rel="stylesheet" type="text/css" href="normalize.css">
 	 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+	 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" type="text/javascript"></script>
+
 	 	<script src="slideshow.js" type="text/javascript"></script>
 
 	 	<title>Suomi nousuun bioenergialla</title>
@@ -18,15 +19,23 @@
 	 			<li><a href="index.html">Etusivu</a></li>
 	 			<li><a href="news.html">Uutisia</a></li>
 	 			<li><a href="contact.html">Yhteystiedot</a></li>
+	 			<li><a href="bio.html">Bioenergiapeli</a></li>
 	 		</ul>
 		</nav>
 	 	<header>
 	 		<h1>Suomi nousuun Bioenergialla!</h1>
 	 	</header>
 	 	<section>
-	 		<ul id="articles">
-	 		</ul>
-	 		
+	 		<div id="cover">
+	            <div id="slides">
+	            <h3 id="slideDate"></h3>
+	            <h2 id="slideHeader"></h2>
+	            <article id="slideText"></article>
+	            <button id="previousButton" class="buttons" type="button" onclick="previousSlide()">Edellinen</button> 
+	            <button id="NextButton" class="buttons" type="button" onclick="nextSlide()">Seuraava</button>
+	            <button id="playButton" class="buttons" type="button" onclick="togglePlay()">Pysäytä</button>
+	            </div>
+            </div>
 	 	</section>
 	</body>
 </html>
