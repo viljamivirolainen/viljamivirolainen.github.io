@@ -40,15 +40,14 @@ table {
     font-family: 'Acme',regular;
     color: #d3c309;
     width: 80%;
+    height: 80%;
     margin-left: auto;
     margin-right: auto;
     border-width: 4px;
     border-style: solid;
-    border-color: #574938;
+    border-color: blue;
     border-radius: 5px;
-}
-#slides {
-    background-size: cover;
+	background-size: cover;
 }
 
 img {
