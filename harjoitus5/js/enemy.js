@@ -19,18 +19,20 @@ var createMonsters = function(width,height) {
 		while(isNotLegitCoordinate) {
 			x = 32 + (Math.random() * (width - 64));
 			y = 32 + (Math.random() * (height - 64));
-			if(hero.x <= (x + 32)
-				&& x <= (hero.x + 32)
-				&& hero.y <= (y + 32)
-				&& y <= (hero.y + 32)) {
-			    // collision detected!
-			} else {
-				if(monsters.every(h => !(h.x <= (x + 32)
-				&& x <= (h.x + 32)
-				&& h.y <= (y + 32)
-				&& y <= (h.y + 32)))) {
-					isNotLegitCoordinate = false;			
-				}	
+			if(x < (width - 64) && y < (height - 64)) {
+				if(hero.x <= (x + 32)
+					&& x <= (hero.x + 32)
+					&& hero.y <= (y + 32)
+					&& y <= (hero.y + 32)) {
+				    // collision detected!
+				} else {
+					if(monsters.every(h => !(h.x <= (x + 32)
+					&& x <= (h.x + 32)
+					&& h.y <= (y + 32)
+					&& y <= (h.y + 32)))) {
+						isNotLegitCoordinate = false;			
+					}	
+				}
 			}
 			
 		}
