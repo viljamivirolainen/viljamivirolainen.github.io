@@ -64,7 +64,7 @@ var moveMonsters = function(width,height,modifier) {
 			y = monsters[i].y;
 			x += possibilities[j][0]*256*modifier;
 			y += possibilities[j][1]*256*modifier;
-			if(x < (width - 64) && y < (height - 64) && x > 64 && y > 64) {
+			if(x < (width - 64) && y < (height - 64) && x > 32 && y > 32) {
 				if(hero.x <= (x + 32)
 					&& x <= (hero.x + 32)
 					&& hero.y <= (y + 32)
