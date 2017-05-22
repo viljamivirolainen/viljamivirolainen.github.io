@@ -1,4 +1,3 @@
-
 // Monster image
 var monsterReady = false;
 var monsterImage = new Image();
@@ -7,7 +6,6 @@ monsterImage.onload = function () {
 };
 monsterImage.src = "images/monster.png";
 
-var monstersCaught = 0;
 
 var monsters = [];
 
@@ -53,5 +51,33 @@ var drawMonsters = function(ctx) {
 	for (var i = monsters.length - 1; i >= 0; i--) {
 		ctx.drawImage(monsterImage, monsters[i].x, monsters[i].y);
 	}
+};
 
+var moveMonsters = function(width,height,modifier) {
+	for (var i = monsters.length - 1; i >= 0; i--) {
+		var x = monsters[i].x;
+		var y = monsters[i].y;
+		var possibilities = [[0,1],[0,-1],[1,0],[-1,0]];
+		
+		for (var j = possibilities.length - 1; j >= 0; j--) {
+			x = monsters[i].x;
+			y = monsters[i].y;
+			x += possibilities[j][0]*256*modifier;
+			y += possibilities[j][1]*256*modifier;
+			if(x < (width - 64) && y < (height - 64) && x > 64 && y > 64) {
+				if(hero.x <= (x + 32)
+					&& x <= (hero.x + 32)
+					&& hero.y <= (y + 32)
+					&& y <= (hero.y + 32)) {
+				    // collision detected!
+				} else {
+					if(monsters.every(h => h.x == monsters[i].x && h.y == monsters[i].y || !(h.x <= (x + 32) && x <= (h.x + 32) && h.y <= (y + 32) && y <= (h.y + 32)))) {
+						monsters[i].x = x;
+						monsters[i].y = y;
+						break;			
+					}	
+				}
+			}
+		}
+	}
 };
