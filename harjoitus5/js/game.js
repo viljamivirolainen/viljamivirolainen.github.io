@@ -13,28 +13,16 @@ bgImage.onload = function () {
 };
 bgImage.src = "images/background.png";
 
-// Hero image
-var heroReady = false;
-var heroImage = new Image();
-heroImage.onload = function () {
-	heroReady = true;
-};
-heroImage.src = "images/hero.png";
 
-// Monster image
-var monsterReady = false;
-var monsterImage = new Image();
-monsterImage.onload = function () {
-	monsterReady = true;
-};
-monsterImage.src = "images/monster.png";
 
 // Game objects
-var hero = {
-	speed: 256 // movement in pixels per second
-};
-var monster = {};
-var monstersCaught = 0;
+
+
+		
+
+	
+
+
 
 // Handle keyboard controls
 var keysDown = {};
@@ -47,14 +35,16 @@ addEventListener("keyup", function (e) {
 	delete keysDown[e.keyCode];
 }, false);
 
+
+
 // Reset the game when the player catches a monster
 var reset = function () {
-	hero.x = canvas.width / 2;
-	hero.y = canvas.height / 2;
+	//resetPlayer();
+	setPlayerStartingCoordinates(canvas.width / 2, canvas.height / 2);
+	
 
-	// Throw the monster somewhere on the screen randomly
-	monster.x = 32 + (Math.random() * (canvas.width - 64));
-	monster.y = 32 + (Math.random() * (canvas.height - 64));
+	createMonsters(canvas.width,canvas.height);
+
 };
 
 // Update game objects
@@ -73,15 +63,15 @@ var update = function (modifier) {
 	}
 
 	// Are they touching?
-	if (
-		hero.x <= (monster.x + 32)
-		&& monster.x <= (hero.x + 32)
-		&& hero.y <= (monster.y + 32)
-		&& monster.y <= (hero.y + 32)
-	) {
-		++monstersCaught;
-		reset();
-	}
+	//if (
+	//	hero.x <= (monster.x + 32)
+//		&& monster.x <= (hero.x + 32)
+//		&& hero.y <= (monster.y + 32)
+//		&& monster.y <= (hero.y + 32)
+//	) {
+//		++monstersCaught;
+//		reset();
+//	}
 };
 
 // Draw everything
@@ -95,7 +85,7 @@ var render = function () {
 	}
 
 	if (monsterReady) {
-		ctx.drawImage(monsterImage, monster.x, monster.y);
+		drawMonsters(ctx);
 	}
 
 	// Score
@@ -126,5 +116,6 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 // Let's play this game!
 var then = Date.now();
+//setPlayerStartingCoordinates(canvas.width / 2, canvas.height / 2);
 reset();
 main();
