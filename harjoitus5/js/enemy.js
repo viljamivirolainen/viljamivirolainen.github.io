@@ -16,20 +16,29 @@ var createMonsters = function(width,height) {
 		var isNotLegitCoordinate = true
 		var x = 0;
 		var y = 0;
-		var monster = {
-			x : 0,
-			y : 0
-		};
-		monsters[i] = monster;
 		while(isNotLegitCoordinate) {
 			x = 32 + (Math.random() * (width - 64));
 			y = 32 + (Math.random() * (height - 64));
-			if(x != hero.x && y != hero.y && monsters.every(h => h.x != x && h.y != y)) {
-				monsters[i].x = x;
-				monsters[i].y = y;
-				isNotLegitCoordinate = false;			
+			var dx = hero.x - x;
+			var dy = hero.y - y;
+			var distance = Math.sqrt(dx * dx + dy * dy);
+			if (distance < 32) {
+			    // collision detected!
+			} else {
+				if(monsters.every(h => !Math.sqrt((h.x - x) * (h.x - x) + (h.y - y) * (h.y - y)) < 32)) {
+					isNotLegitCoordinate = false;			
+				}	
 			}
+			
 		}
+		var monster = {
+			x:0,
+			y:0
+		};
+		monster.x = x;
+		monster.y = y;
+		monsters[i] = monster;
+		
 
 	}
 };
