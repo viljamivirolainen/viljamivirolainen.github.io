@@ -61,6 +61,7 @@ var update = function (modifier) {
 	if (39 in keysDown) { // Player holding right
 		hero.x += hero.speed * modifier;
 	}
+
 	moveMonsters(canvas.width,canvas.height,modifier);
 
 	// Are they touching?
@@ -97,8 +98,9 @@ var main = function () {
 	var delta = now - then;
 
 	update(delta / 1000);
-	render();
 
+	render();
+	
 	then = now;
 
 	// Request to do this again ASAP
